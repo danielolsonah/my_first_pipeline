@@ -13,6 +13,7 @@ pipeline {
             deleteDir() /* clean up our workspace */
         }
         success {
+        	echo 'I Succeeded!'
             mail to: 'danielallenolson@gmail.com',
              subject: "Successful Pipeline: ${currentBuild.fullDisplayName}",
              body: "Everything is fine with ${env.BUILD_URL}"
@@ -21,6 +22,7 @@ pipeline {
             echo 'I am unstable :/'
         }
         failure {
+        	echo 'I failed...'
         	mail to: 'danielallenolson@gmail.com',
             	subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
             	body: "Something is wrong with ${env.BUILD_URL}"
