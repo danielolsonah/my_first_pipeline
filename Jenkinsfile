@@ -3,6 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+            	script {
+            		println("Hello World!!!")
+            	}
                 sh(returnStdout: true, script:'echo "Hello World"')
                 sh '''
                     echo "Multiline shell steps works too"
